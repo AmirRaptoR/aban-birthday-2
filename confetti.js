@@ -1,13 +1,10 @@
-// Looping celebratory confetti from the two sides.
-// Cycle: emit for 10s, pause 20s, repeat (forever).
+// Celebratory confetti: a burst from the two sides, every 10 seconds.
 // No dependencies; respects prefers-reduced-motion.
 (function () {
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const ON_MS = 10000;   // confetti running
-  const OFF_MS = 20000;  // pause between bursts
-  const EMIT_EVERY_MS = 200; // how often a batch leaves each side cannon
-  const PER_SIDE = 12;   // particles per side, per batch
+  const EVERY_MS = 10000;  // fire a fresh burst this often
+  const PER_SIDE = 90;     // particles per side, per burst
 
   const COLORS = ["#f29a72", "#7cc0a0", "#8aa6c0", "#f4c14e", "#f49ac0", "#ffffff"];
 
@@ -32,7 +29,7 @@
   const rand = (a, b) => a + Math.random() * (b - a);
   const particles = [];
 
-  // Fire one batch from a side cannon toward the centre.
+  // Fire one burst from a side cannon toward the centre.
   function burst(originX, angleDeg, count) {
     const angle = (angleDeg * Math.PI) / 180;
     for (let i = 0; i < count; i++) {
@@ -54,9 +51,10 @@
     }
   }
 
-  function emitSides() {
+  function fireBurst() {
     burst(0.0, -65, PER_SIDE);   // left cannon, up-right
     burst(1.0, -115, PER_SIDE);  // right cannon, up-left
+    ensureRaf();
   }
 
   const GRAVITY = 0.32;
@@ -86,28 +84,17 @@
       ctx.fillRect(-w / 2, -h / 2, w, h);
       ctx.restore();
     }
-    if (particles.length || emitting) {
+    if (particles.length) {
       rafId = requestAnimationFrame(frame);
     } else {
       ctx.clearRect(0, 0, W, H);
-      rafId = null; // idle: stop drawing until the next cycle
+      rafId = null; // idle until the next burst
     }
   }
 
   function ensureRaf() { if (rafId == null) rafId = requestAnimationFrame(frame); }
 
-  // ---- the loop: 10s emitting, 20s pause, forever ----
-  let emitting = false;
-  function activePhase() {
-    emitting = true;
-    ensureRaf();
-    emitSides();
-    const interval = setInterval(emitSides, EMIT_EVERY_MS);
-    setTimeout(() => {
-      clearInterval(interval);
-      emitting = false;          // existing particles finish falling, then rAF idles
-      setTimeout(activePhase, OFF_MS);
-    }, ON_MS);
-  }
-  activePhase();
+  // burst on open, then every 10 seconds
+  fireBurst();
+  setInterval(fireBurst, EVERY_MS);
 })();
