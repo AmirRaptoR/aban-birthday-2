@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+config.js
+dist/
+birthday.zip
+birthday_design/
+
+.wrangler/

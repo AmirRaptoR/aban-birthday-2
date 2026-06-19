@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aban is 2!</title>
+  <meta name="description" content="You're invited to Aban's 2nd birthday party!">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; }
+    body{
+      background:#fbf3e7;
+      font-family:'Quicksand','Vazirmatn',sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    @keyframes abanFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-7px); } }
+
+    .page{
+      min-height:100vh;
+      background:radial-gradient(120% 80% at 50% 0%, #fef7ed 0%, #fbeede 45%, #f6e3cf 100%);
+      padding:0 0 56px;
+      overflow-x:hidden;
+    }
+
+    /* top bar */
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:blur(8px);
+      background:rgba(254,247,237,.78);
+      border-bottom:1px solid rgba(216,196,162,.4);
+    }
+    .topbar-inner{
+      max-width:680px; margin:0 auto; padding:11px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      font-family:'Fredoka',sans-serif; font-weight:600; font-size:16px; color:#5b5048;
+      display:flex; align-items:center; gap:7px;
+    }
+    .brand .balloon{ font-size:18px; }
+    .langs{ display:flex; gap:6px; }
+    .lang-pill{
+      cursor:pointer; font-weight:700; font-size:12.5px; border-radius:999px;
+      padding:6px 13px; transition:all .15s;
+      background:#fff; color:#9a8f80; border:1px solid #ecddc8;
+    }
+    .lang-pill.active{
+      background:#f29a72; color:#fff; border:1px solid #f29a72;
+      box-shadow:0 3px 8px -3px rgba(242,154,114,.9);
+    }
+
+    .column{ max-width:680px; margin:0 auto; padding:0 20px; }
+
+    /* hero */
+    .hero{ position:relative; margin-top:18px; }
+    .hero-img{
+      display:block; width:100%; height:auto; border-radius:26px;
+      box-shadow:0 22px 50px -26px rgba(150,110,60,.55);
+    }
+    .hero-overlay{
+      position:absolute; inset:0;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:5% 15% 9%;
+    }
+    .hero-photo{
+      display:block; object-fit:cover; object-position:center 38%; margin-bottom:14px;
+      width:138px; height:138px; border-radius:50%;
+      border:6px solid #ffffff;
+      box-shadow:0 14px 30px -12px rgba(120,90,50,.55);
+    }
+    .eyebrow{
+      font-size:clamp(10px,2.4vw,14px); font-weight:700; letter-spacing:.16em;
+      text-transform:uppercase; color:#8a9fa8;
+    }
+    .hero-title{
+      font-family:'Fredoka',sans-serif; font-weight:600;
+      font-size:clamp(26px,7vw,52px); line-height:1.02; color:#4a4038;
+      margin:2px 0 0; text-shadow:0 2px 14px rgba(255,250,242,.9);
+    }
+
+    /* detail card */
+    .detail-card{
+      margin-top:-22px; position:relative; z-index:5;
+      background:#ffffff; border:1px solid #f0e2cd; border-radius:22px;
+      padding:20px 22px; box-shadow:0 16px 36px -24px rgba(150,110,60,.5);
+      display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px;
+    }
+    .detail-info{ flex:1; min-width:180px; }
+    .detail-row{ display:flex; align-items:flex-start; gap:9px; }
+    .detail-row.date{ align-items:center; margin-bottom:8px; }
+    .detail-row .ico{ font-size:20px; }
+    .date-text{ font-weight:600; font-size:15px; color:#4a4038; }
+    .address-text{ font-weight:500; font-size:14px; color:#7a7066; line-height:1.4; }
+    .directions{
+      flex:none; display:inline-flex; align-items:center; gap:8px;
+      background:#f29a72; color:#fff; text-decoration:none;
+      font-weight:700; font-size:14px; padding:12px 18px; border-radius:999px;
+      box-shadow:0 6px 16px -6px rgba(242,154,114,.8); white-space:nowrap;
+      transition:background .15s;
+    }
+    .directions:hover{ background:#ef8a5d; }
+    .directions .ico{ font-size:17px; }
+
+    /* cards */
+    .card-title{ font-family:'Fredoka',sans-serif; font-weight:600; font-size:21px; }
+
+    /* wishlist */
+    .wishlist-card{
+      margin-top:28px; background:#fffdfa; border:1px solid #f1e6d6;
+      border-radius:24px; padding:24px 22px;
+      box-shadow:0 14px 34px -26px rgba(150,110,60,.45);
+    }
+    .wishlist-card .card-title{ color:#4a4038; margin-bottom:4px; }
+    .wish-hint{ font-size:13px; color:#9a8f80; margin-bottom:16px; line-height:1.4; }
+    .gift{
+      display:flex; align-items:center; gap:13px;
+      background:#ffffff; border:1px solid #f0e7da; border-radius:16px;
+      padding:12px 14px; margin-bottom:10px; cursor:pointer; user-select:none;
+      transition:border-color .15s, opacity .15s;
+    }
+    .gift:hover{ border-color:#e6d4b8; }
+    .gift.busy{ opacity:.55; pointer-events:none; }
+    .gift .check{
+      flex:none; width:26px; height:26px; border-radius:9px;
+      border:2px solid #e4d8c6; position:relative;
+    }
+    .gift.taken .check{
+      border-color:#7cc0a0; background:#7cc0a0;
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-weight:700; font-size:15px;
+    }
+    .gift .check::after{ content:""; }
+    .gift.taken .check::after{ content:"\2713"; }
+    .gift .emoji{ font-size:23px; line-height:1; }
+    .gift .name{ flex:1; font-weight:600; font-size:14.5px; color:#4a4038; }
+    .gift.taken .name{ color:#a89e90; text-decoration:line-through; }
+    .taken-badge{
+      flex:none; font-size:10.5px; font-weight:700; letter-spacing:.05em;
+      color:#7cc0a0; background:#eef8f2; border-radius:999px; padding:4px 9px;
+      display:none;
+    }
+    .gift.taken .taken-badge{ display:inline-block; }
+
+    /* party info */
+    .party-card{
+      margin-top:24px;
+      background:linear-gradient(180deg,#eaf5f1 0%,#e4f0f4 100%);
+      border:1px solid #d6e8e6; border-radius:24px; padding:24px 22px;
+      box-shadow:0 14px 34px -26px rgba(90,140,150,.45);
+    }
+    .party-card .card-title{ color:#3f5a5e; margin-bottom:16px; }
+    .party-row{
+      display:flex; gap:13px; align-items:flex-start;
+      background:rgba(255,255,255,.65); border-radius:15px;
+      padding:12px 14px; margin-bottom:10px;
+    }
+    .party-row .emoji{ font-size:24px; line-height:1.1; }
+    .party-row .p-title{ font-weight:700; font-size:14.5px; color:#3f5a5e; }
+    .party-row .p-desc{ font-size:13px; color:#6d8488; line-height:1.45; margin-top:2px; }
+
+    /* footer */
+    .footer{ text-align:center; margin-top:30px; }
+    .footer .cake{ font-size:34px; animation:abanFloat 3.4s ease-in-out infinite; }
+    .footer .caption{
+      font-family:'Fredoka',sans-serif; font-weight:500; font-size:17px;
+      color:#7a7066; margin-top:6px;
+    }
+
+    .loading, .error{
+      text-align:center; color:#9a8f80; font-size:14px; padding:14px 0;
+    }
+    .error{ color:#c4694e; }
+  </style>
+</head>
+<body>
+  <div class="page" id="page" dir="ltr">
+
+    <!-- top bar -->
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="brand"><span class="balloon">🎈</span><span data-t="brand"></span></div>
+        <div class="langs" id="langs"></div>
+      </div>
+    </div>
+
+    <div class="column">
+
+      <!-- hero -->
+      <div class="hero">
+        <img class="hero-img" src="assets/animal-frame.png" alt="Party animals">
+        <div class="hero-overlay">
+          <div class="eyebrow" data-t="invited"></div>
+          <div class="hero-title" data-t="heroTitle"></div>
+        </div>
+      </div>
+
+      <!-- detail card -->
+      <div class="detail-card">
+        <div class="detail-info">
+          <div class="detail-row date"><span class="ico">📅</span><span class="date-text" id="dateLine"></span></div>
+          <div class="detail-row"><span class="ico">📍</span><span class="address-text" id="address"></span></div>
+        </div>
+        <a class="directions" id="directions" target="_blank" rel="noopener">
+          <span class="ico">🗺️</span><span data-t="directions"></span>
+        </a>
+      </div>
+
+      <!-- wishlist -->
+      <div class="wishlist-card">
+        <div class="card-title">🎁 <span data-t="wishTitle"></span></div>
+        <div class="wish-hint" data-t="wishHint"></div>
+        <div id="wishlist"><div class="loading" data-t="loading"></div></div>
+      </div>
+
+      <!-- party info -->
+      <div class="party-card">
+        <div class="card-title">🏡 <span data-t="partyTitle"></span></div>
+        <div id="party"><div class="loading" data-t="loading"></div></div>
+      </div>
+
+      <!-- footer -->
+      <div class="footer">
+        <div class="cake">🎂</div>
+        <div class="caption" data-t="footer"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
