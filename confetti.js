@@ -1,7 +1,13 @@
-// Self-contained celebratory confetti burst on page load.
-// No dependencies; respects prefers-reduced-motion; cleans itself up.
+// Looping celebratory confetti from the two sides.
+// Cycle: emit for 10s, pause 20s, repeat (forever).
+// No dependencies; respects prefers-reduced-motion.
 (function () {
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const ON_MS = 10000;   // confetti running
+  const OFF_MS = 20000;  // pause between bursts
+  const EMIT_EVERY_MS = 200; // how often a batch leaves each side cannon
+  const PER_SIDE = 12;   // particles per side, per batch
 
   const COLORS = ["#f29a72", "#7cc0a0", "#8aa6c0", "#f4c14e", "#f49ac0", "#ffffff"];
 
@@ -26,7 +32,7 @@
   const rand = (a, b) => a + Math.random() * (b - a);
   const particles = [];
 
-  // Two side cannons firing toward the centre, like a party popper.
+  // Fire one batch from a side cannon toward the centre.
   function burst(originX, angleDeg, count) {
     const angle = (angleDeg * Math.PI) / 180;
     for (let i = 0; i < count; i++) {
@@ -48,19 +54,21 @@
     }
   }
 
-  burst(0.0, -65, 90);   // left cannon, up-right
-  burst(1.0, -115, 90);  // right cannon, up-left
-  setTimeout(() => { burst(0.5, -90, 70); }, 250); // centre pop a beat later
+  function emitSides() {
+    burst(0.0, -65, PER_SIDE);   // left cannon, up-right
+    burst(1.0, -115, PER_SIDE);  // right cannon, up-left
+  }
 
-  const GRAVITY = 0.32 * dpr;
+  const GRAVITY = 0.32;
   const DRAG = 0.985;
+  let rafId = null;
 
   function frame() {
     ctx.clearRect(0, 0, W, H);
     for (let i = particles.length - 1; i >= 0; i--) {
       const p = particles[i];
       p.vx *= DRAG;
-      p.vy = p.vy * DRAG + GRAVITY;
+      p.vy = p.vy * DRAG + GRAVITY * dpr;
       p.x += p.vx;
       p.y += p.vy;
       p.rot += p.vrot;
@@ -74,17 +82,32 @@
       ctx.rotate(p.rot);
       ctx.globalAlpha = fade;
       ctx.fillStyle = p.color;
-      // little rectangular ribbons that flutter (squash on the wobble)
       const w = p.size, h = p.size * 0.5 * (0.6 + 0.4 * Math.abs(Math.cos(p.wobble)));
       ctx.fillRect(-w / 2, -h / 2, w, h);
       ctx.restore();
     }
-    if (particles.length) {
-      requestAnimationFrame(frame);
+    if (particles.length || emitting) {
+      rafId = requestAnimationFrame(frame);
     } else {
-      window.removeEventListener("resize", resize);
-      canvas.remove();
+      ctx.clearRect(0, 0, W, H);
+      rafId = null; // idle: stop drawing until the next cycle
     }
   }
-  requestAnimationFrame(frame);
+
+  function ensureRaf() { if (rafId == null) rafId = requestAnimationFrame(frame); }
+
+  // ---- the loop: 10s emitting, 20s pause, forever ----
+  let emitting = false;
+  function activePhase() {
+    emitting = true;
+    ensureRaf();
+    emitSides();
+    const interval = setInterval(emitSides, EMIT_EVERY_MS);
+    setTimeout(() => {
+      clearInterval(interval);
+      emitting = false;          // existing particles finish falling, then rAF idles
+      setTimeout(activePhase, OFF_MS);
+    }, ON_MS);
+  }
+  activePhase();
 })();
