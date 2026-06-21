@@ -9,7 +9,7 @@ const L = {
   en: {
     brand: "Aban turns 2", invited: "You're invited", heroTitle: "Aban is 2!",
     directions: "Get directions", wishTitle: "Gift wishlist",
-    wishHint: "We're so happy that you'll be celebrating Aban's birthday with us. Honestly, the most important gift to us is simply having you there, your presence on this special day means more to us than anything else.\nBut if you'd like to bring something for our sweet Aban, we've put together this list just to make choosing a little easier. That said, anything you pick yourself will be just as loved and appreciated. 💛\nIf you choose a gift from the list, please mark it so others don't pick the same one, that way there are no duplicates.\nAnd one little secret: Aban loves new books that delay bedtime a little! 😄",
+    wishHint: "We're so happy that you'll be celebrating Aban's birthday with us. Honestly, the most important gift to us is simply having you there, your presence on this special day means more to us than anything else.\nBut if you'd like to bring something for our sweet Aban, we've put together this list just to make choosing a little easier. That said, anything you pick yourself will be just as loved and appreciated. 💛\nIf you choose a gift from the list, please mark it so others don't pick the same one, that way there are no duplicates.\nAnd one little secret: Aban loves new books to delay bedtime a little! 😄",
     taken: "Taken", partyTitle: "The party",
     footer: "Can't wait to celebrate with you! 💛",
     loading: "Loading…", error: "Couldn't load. Please refresh.",

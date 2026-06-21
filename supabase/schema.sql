@@ -122,6 +122,6 @@ values
   ('igor-sandals',   4, '🩴', 'Igor sandals (size 21)', 'Igor sandalen (maat 21)',        'Igor sandals (size 21)',      false),
   ('play-tent',      5, '⛺', 'Play tent',              'Speeltent',                      'Play tent',                   false),
   ('train',          6, '🚂', 'Train',                  'Trein',                          'Train',                       false),
-  ('flamingo-ring',  7, '🦩', 'Flamingo swimming ring (kids)','Flamingo zwemband (kinderen)','Flamingo swimming ring (kids)',false),
+  ('flamingo-ring',  7, '🦩', 'Flamingo swimming ring for kids','Flamingo zwemband (kinderen)','Flamingo swimming ring for kids',false),
   ('finger-paint',   8, '🎨', 'Finger paint',           'Vingerverf',                     'Finger paint',                false)
 on conflict (id) do nothing;
