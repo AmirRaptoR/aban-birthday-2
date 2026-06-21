@@ -9,7 +9,7 @@ const L = {
   en: {
     brand: "Aban turns 2", invited: "You're invited", heroTitle: "Aban is 2!",
     directions: "Get directions", wishTitle: "Gift wishlist",
-    wishHint: "Tap a gift to claim it — or tap again to release it. No login needed.",
+    wishHint: "It truly means the world to us that you're here to celebrate Aban's birthday. Honestly, your warm presence is the greatest gift of all — having you with us on this special day means more to us than anything else.\nBut if you'd like to bring something for our dear Aban, we've put together this list to make choosing a little easier.\nPlease mark any gift you pick so others don't buy the same one — that way everything stays surprise-ready and without duplicates.\nAnd on top of all that, Aban always loves a new book — the kind that keeps her up just a little past bedtime :))",
     taken: "Taken", partyTitle: "The party",
     footer: "Can't wait to celebrate with you! 💛",
     loading: "Loading…", error: "Couldn't load. Please refresh.",
@@ -17,7 +17,7 @@ const L = {
   nl: {
     brand: "Aban wordt 2", invited: "Je bent uitgenodigd", heroTitle: "Aban is 2!",
     directions: "Routebeschrijving", wishTitle: "Verlanglijst",
-    wishHint: "Tik op een cadeau om te kiezen — of tik weer om los te laten. Geen login nodig.",
+    wishHint: "We vinden het echt heel bijzonder dat je erbij bent om Abans verjaardag te vieren. Eerlijk gezegd is jullie warme aanwezigheid het allermooiste cadeau — dat jullie er op deze speciale dag bij zijn, betekent meer voor ons dan wat dan ook.\nMaar als je toch iets voor onze lieve Aban wilt meenemen, hebben we deze lijst gemaakt zodat kiezen wat makkelijker wordt.\nVink alsjeblieft elk cadeau aan dat je uitkiest, zodat anderen niet hetzelfde kopen — zo blijft alles zonder dubbele cadeaus en vol verrassing.\nEn daarbij geniet Aban altijd van een nieuw boek waardoor ze nog even later gaat slapen :))",
     taken: "Gekozen", partyTitle: "Het feest",
     footer: "We kunnen niet wachten om te vieren! 💛",
     loading: "Laden…", error: "Kon niet laden. Ververs de pagina.",
@@ -25,7 +25,7 @@ const L = {
   fa: {
     brand: "آبان ۲ ساله می‌شود", invited: "تو دعوتی", heroTitle: "آبان ۲ ساله شد!",
     directions: "مسیر را ببین", wishTitle: "لیست کادوها",
-    wishHint: "روی یک کادو بزن تا انتخابش کنی — یا دوباره بزن تا آزاد شود. نیازی به ورود نیست.",
+    wishHint: "از صمیم قلب خوشحالیم که در جشن تولد آبان کنار ما هستید. راستش مهم‌ترین هدیه برای ما حضور گرم شماست و بودنتون در این روز خاص، از هر چیز دیگری برامون باارزش‌تره.\nاما اگر دوست دارید چیزی برای آبان جونِ ما تهیه کنید، این لیست را آماده کرده‌ایم تا انتخاب واستون راحت‌تر بشه.\nلطفاً هر هدیه‌ای را که انتخاب می‌کنید علامت بزنید تا دوستان دیگر همان را دوباره نخرند و همه‌چیز بدون تکرار و سورپرایز بماند.\nدرکنار همه اینها آبان همیشه از یک کتاب جدید که باعث بشه دیرتر بخوابه لذت می‌بره :))",
     taken: "انتخاب شد", partyTitle: "جشن",
     footer: "بی‌صبرانه منتظر جشن گرفتن با شما هستیم! 💛",
     loading: "در حال بارگذاری…", error: "بارگذاری نشد. صفحه را تازه کن.",

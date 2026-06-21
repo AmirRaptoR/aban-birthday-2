@@ -100,31 +100,28 @@ on conflict (id) do nothing;
 
 insert into public.party_info (position, emoji, en_title, en_desc, nl_title, nl_desc, fa_title, fa_desc)
 values
-  (1, '🏊', 'Splash pool',       'Out back in the garden — bring swimmies & a towel!',
-            'Zwembad',           'In de achtertuin — neem zwemspullen en een handdoek mee!',
-            'استخر آب‌بازی',      'توی حیاط پشتی — لباس شنا و حوله بیار!'),
-  (2, '🎨', 'Painting corner',   'Finger-painting for the little ones, smocks provided.',
-            'Schilderhoek',      'Vingerverven voor de kleintjes, schorten aanwezig.',
-            'گوشهٔ نقاشی',        'نقاشی با انگشت برای بچه‌ها، پیش‌بند داریم.'),
-  (3, '🍔', 'BBQ & cold drinks', 'For the grown-ups, firing up from 3 pm.',
-            'BBQ & koude drankjes','Voor de volwassenen, vanaf 15:00 uur.',
-            'باربیکیو و نوشیدنی خنک','برای بزرگ‌ترها، از ساعت ۳ بعدازظهر.'),
-  (4, '🦁', 'Animal photo spot', 'Snap a picture with our jungle balloon crew.',
-            'Dieren-fotohoek',   'Maak een foto met onze jungle-ballonvriendjes.',
-            'گوشهٔ عکس حیوانات',   'با دوستای بادکنکی جنگل عکس بگیر.'),
-  (5, '🍰', 'Cake time',         'We sing & cut Aban''s cake at 4 pm — don''t miss it!',
-            'Taart',             'We zingen en snijden Abans taart om 16:00 — niet missen!',
-            'وقت کیک',           'ساعت ۴ آهنگ می‌خونیم و کیک آبان رو می‌بریم — از دستش نده!')
+  (1, '🏊', 'Splash pool',       'Out back in the garden, bring swimwear',
+            'Zwembad',           'Achter in de tuin, neem zwemkleding mee',
+            'استخر آب‌بازی',      'توی حیاط پشتی، لباس شنا بیار'),
+  (2, '🌈', 'Play-dough corner', 'Squish, roll and shape colorful play dough — aprons provided.',
+            'Kleihoek',          'Kneden, rollen en vormen met kleurrijke klei — schortjes aanwezig.',
+            'گوشهٔ خمیربازی',     'با خمیربازی رنگی ورز بده و شکل بساز — پیش‌بند داریم.'),
+  (3, '🍔', 'BBQ & cold drinks', 'For the grown-ups — with tasty snacks for the kids too.',
+            'BBQ & koude drankjes','Voor de volwassenen — en lekkere snacks voor de kleintjes.',
+            'باربیکیو و نوشیدنی خنک','برای بزرگ‌ترها — و خوراکی‌های خوشمزه برای بچه‌ها.'),
+  (4, '🎶', 'Singing & dancing', 'Sing along and show off your best moves with the little ones.',
+            'Zingen & dansen',   'Zing mee en laat je beste moves zien met de kleintjes.',
+            'آواز و رقص',         'با بچه‌ها بخون و برقص و قشنگ‌ترین حرکاتت رو نشون بده.')
 on conflict do nothing;
 
 insert into public.wishlist (id, position, emoji, en_name, nl_name, fa_name, reserved)
 values
-  ('giraffe',  1, '🦒', 'Plush giraffe',       'Knuffelgiraf',              'زرافهٔ عروسکی',        false),
-  ('icecream', 2, '🍦', 'Ice-cream play set',  'IJsjes-speelset',           'ست بستنی‌بازی',        true),
-  ('plane',    3, '✈️', 'Wooden toy airplane', 'Houten speelgoedvliegtuig', 'هواپیمای چوبی',       false),
-  ('water',    4, '🌊', 'Splash water table',  'Watertafel',                'میز آب‌بازی',          false),
-  ('blocks',   5, '🐘', 'Wooden animal blocks','Houten dierenblokken',      'مکعب‌های چوبی حیوانات',false),
-  ('bath',     6, '🦆', 'Bath toy set',        'Badspeeltjes-set',          'ست اسباب‌بازی حمام',   true),
-  ('books',    7, '📚', 'Animal picture books','Dieren-prentenboeken',      'کتاب‌های تصویری حیوانات',false),
-  ('light',    8, '🦁', 'Lion night light',    'Leeuw-nachtlampje',         'چراغ‌خواب شیر',        false)
+  ('beach-toys',     1, '🏖️', 'Beach toy set',          'Strandspeelset',                 'Beach toy set',               false),
+  ('towel-poncho',   2, '🦖', 'Towel poncho (2-3 years)','Badponcho / handdoek (2-3 jaar)','Towel poncho (2-3 years)',     false),
+  ('magnet-tiles',   3, '🧲', 'Magnet tiles',           'Magnetische tegels',             'Magnet tiles',                false),
+  ('igor-sandals',   4, '🩴', 'Igor sandals (size 21)', 'Igor sandalen (maat 21)',        'Igor sandals (size 21)',      false),
+  ('play-tent',      5, '⛺', 'Play tent',              'Speeltent',                      'Play tent',                   false),
+  ('train',          6, '🚂', 'Train',                  'Trein',                          'Train',                       false),
+  ('flamingo-ring',  7, '🦩', 'Flamingo swimming ring (kids)','Flamingo zwemband (kinderen)','Flamingo swimming ring (kids)',false),
+  ('finger-paint',   8, '🎨', 'Finger paint',           'Vingerverf',                     'Finger paint',                false)
 on conflict (id) do nothing;
