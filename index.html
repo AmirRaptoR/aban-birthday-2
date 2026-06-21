@@ -62,8 +62,9 @@
     /* hero */
     .hero{ position:relative; margin-top:18px; }
     .hero-img{
-      display:block; width:100%; height:auto; border-radius:26px;
+      display:block; width:100%; height:auto; border-radius:26px 26px 0 0;
       box-shadow:0 22px 50px -26px rgba(150,110,60,.55);
+      border:1px solid #f0e2cd;
     }
     .hero-overlay{
       position:absolute; inset:0;
@@ -89,7 +90,7 @@
     /* detail card */
     .detail-card{
       margin-top:-22px; position:relative; z-index:5;
-      background:#ffffff; border:1px solid #f0e2cd; border-radius:22px;
+      background:#ffffff; border:1px solid #f0e2cd; border-top:none; border-radius:0 0 22px 22px;
       padding:20px 22px; box-shadow:0 16px 36px -24px rgba(150,110,60,.5);
       display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px;
     }
