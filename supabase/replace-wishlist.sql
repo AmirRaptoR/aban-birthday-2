@@ -12,4 +12,5 @@ values
   ('play-tent',      5, '⛺', 'Play tent',              'Speeltent',                      'Play tent',                   false),
   ('train',          6, '🚂', 'Train',                  'Trein',                          'Train',                       false),
   ('flamingo-ring',  7, '🦩', 'Flamingo swimming ring for kids','Flamingo zwemband (kinderen)','Flamingo swimming ring for kids',false),
-  ('finger-paint',   8, '🎨', 'Finger paint',           'Vingerverf',                     'Finger paint',                false);
+  ('finger-paint',   8, '🎨', 'Finger paint',           'Vingerverf',                     'Finger paint',                false),
+  ('straw-bottle',   9, '🥤', 'Drinking bottle with straw for toddlers','Drinkfles met rietje voor peuters','Drinking bottle with straw for toddlers',false);

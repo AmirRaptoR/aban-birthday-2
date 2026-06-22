@@ -109,9 +109,9 @@ values
   (3, '🍔', 'BBQ & cold drinks', 'For the grown-ups — with tasty snacks for the kids too.',
             'BBQ & koude drankjes','Voor de volwassenen — en lekkere snacks voor de kleintjes.',
             'باربیکیو و نوشیدنی خنک','برای بزرگ‌ترها — و خوراکی‌های خوشمزه برای بچه‌ها.'),
-  (4, '🎶', 'Singing & dancing', 'Sing along and show off your best moves with the little ones.',
-            'Zingen & dansen',   'Zing mee en laat je beste moves zien met de kleintjes.',
-            'آواز و رقص',         'با بچه‌ها بخون و برقص و قشنگ‌ترین حرکاتت رو نشون بده.')
+  (4, '🎶', 'Singing & dancing', '',
+            'Zingen & dansen',   '',
+            'آواز و رقص',         '')
 on conflict do nothing;
 
 insert into public.wishlist (id, position, emoji, en_name, nl_name, fa_name, reserved)
@@ -123,5 +123,6 @@ values
   ('play-tent',      5, '⛺', 'Play tent',              'Speeltent',                      'Play tent',                   false),
   ('train',          6, '🚂', 'Train',                  'Trein',                          'Train',                       false),
   ('flamingo-ring',  7, '🦩', 'Flamingo swimming ring for kids','Flamingo zwemband (kinderen)','Flamingo swimming ring for kids',false),
-  ('finger-paint',   8, '🎨', 'Finger paint',           'Vingerverf',                     'Finger paint',                false)
+  ('finger-paint',   8, '🎨', 'Finger paint',           'Vingerverf',                     'Finger paint',                false),
+  ('straw-bottle',   9, '🥤', 'Drinking bottle with straw for toddlers','Drinkfles met rietje voor peuters','Drinking bottle with straw for toddlers',false)
 on conflict (id) do nothing;
